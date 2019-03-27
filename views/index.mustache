@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/public/site.css"></link>
+  </head>
+  <body>
+    {{>menu}}
+
+    <div>
+      {{#movies}}
+        <form action='/movies/{{genre}}' method='GET'>
+          <button type='submit'>{{genre}}</button>
+        </form>
+      {{/movies}}
+    </div>
+    <div>
+
+        <ul>
+        {{#movies}}
+            <li>
+                {{title}}
+                <img src='{{posterURL}}'>
+                <form action='/delete-movie' method="POST">
+                  <input type="hidden" name="id" value="{{id}}" />
+                  <button type="submit">Remove</button>
+                </form>
+
+        
+            </li>
+        {{/movies}}
+       </ul>
+    </div>
+
+    
+
+  </body>
+</html>
